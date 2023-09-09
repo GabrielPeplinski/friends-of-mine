@@ -2,11 +2,11 @@
 Aplicacação desenvolvida com Angular, onde será possível gerenciar uma agenda de contatos pessoais.
 
 ## Protótipo
-### Versâo Desktop:
-https://www.figma.com/file/cEcMhW2fBsuNGNZuyw04O2/Friends-Of-Mine?type=design&node-id=11%3A4&mode=design&t=RYpKvMSc5CVxEpzL-1
+### Versão Desktop:
+https://www.figma.com/proto/cEcMhW2fBsuNGNZuyw04O2/Friends-Of-Mine?type=design&node-id=58-636&t=EYB7zBUPnqaYEYB6-1&scaling=min-zoom&page-id=11%3A4&starting-point-node-id=58%3A636&mode=design
 
 ### Versão Mobile: 
-https://www.figma.com/file/cEcMhW2fBsuNGNZuyw04O2/Friends-Of-Mine?type=design&node-id=34%3A1031&mode=design&t=RYpKvMSc5CVxEpzL-1
+https://www.figma.com/proto/cEcMhW2fBsuNGNZuyw04O2/Friends-Of-Mine?type=design&node-id=34-1044&t=UZkq84AImvskw7My-1&scaling=scale-down&page-id=34%3A1031&starting-point-node-id=34%3A1044&mode=design
 
 ## Checklist
 
