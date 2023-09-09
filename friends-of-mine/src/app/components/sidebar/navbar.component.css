@@ -1,0 +1,6 @@
+#logo-image {
+  min-width: 50px; /* Largura mínima de 100 pixels */
+  max-width: 150px; /* Largura máxima de 300 pixels */
+  min-height: 50px; /* Altura mínima de 50 pixels */
+  max-height: 150px;
+}
