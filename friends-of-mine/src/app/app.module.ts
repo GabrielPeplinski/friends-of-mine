@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateContactPageComponent } from './pages/create-contact-page/create-contact-page.component';
+import { ShowContactPageComponent } from './pages/show-contact-page/show-contact-page.component';
+import { SearchBoxComponent } from './components/navbar/search-box/search-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CreateContactPageComponent,
+    ShowContactPageComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
