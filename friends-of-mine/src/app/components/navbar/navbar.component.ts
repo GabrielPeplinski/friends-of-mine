@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Output} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -11,4 +11,6 @@ export class NavbarComponent {
   onTitleClick(): void {
     console.log('Botão para tela inicial clicado')
   }
+
+  @Output() placeholderValue: string = 'Busque um contato';
 }

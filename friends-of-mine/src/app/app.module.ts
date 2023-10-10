@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateContactPageComponent } from './pages/create-contact-page/create-contact-page.component';
 import { ShowContactPageComponent } from './pages/show-contact-page/show-contact-page.component';
+import { SearchBoxComponent } from './components/navbar/search-box/search-box.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ShowContactPageComponent } from './pages/show-contact-page/show-contact
     NavbarComponent,
     FooterComponent,
     CreateContactPageComponent,
-    ShowContactPageComponent
+    ShowContactPageComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
