@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {phoneNumberRegex} from "../../utils/regex";
+import {phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ContactService} from "@services/contact/contact.service";
+import {Contact} from "@interfaces/Contact";
 
 @Component({
   selector: 'app-create-contact-page',
@@ -11,8 +13,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class CreateContactPageComponent implements OnInit {
   contactForm!: FormGroup;
 
-  constructor() {
-  }
+  constructor(private contactService: ContactService) {}
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -43,7 +44,7 @@ export class CreateContactPageComponent implements OnInit {
   submit(): void {
     if (this.contactForm.invalid)
       return;
-    else if (this.contactForm.valid)
-    console.log('deu certo');
+
+    // this.contactService.saveLocalStorageContact();
   }
 }
