@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from "@services/contact/contact.service";
-import {Contact} from "@interfaces/Contact";
+import ContactModel from "../../models/ContactModel";
 
 @Component({
   selector: 'app-create-contact-page',
@@ -45,6 +45,14 @@ export class CreateContactPageComponent implements OnInit {
     if (this.contactForm.invalid)
       return;
 
-    // this.contactService.saveLocalStorageContact();
+    const newContact: ContactModel = new ContactModel({
+      name: this.name.value,
+      email: this.email.value,
+      isFavorite: this.isFavorite.value,
+      phoneNumber: this.phoneNumber.value
+    });
+
+    console.log(newContact);
+    this.contactService.saveLocalStorageContact(newContact);
   }
 }

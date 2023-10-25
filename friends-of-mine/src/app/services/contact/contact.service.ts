@@ -10,14 +10,14 @@ export class ContactService {
 
   constructor() { }
 
-  getLocalStorageContactContacts(): Contact[] {
-    const contactsJson: string = localStorage.getItem(this.localStorageKey);
+  async getLocalStorageContactContacts(): Promise<Contact[]> {
+    const contactsJson: string | null = localStorage.getItem(this.localStorageKey);
 
     return contactsJson ? JSON.parse(contactsJson) : [];
   }
 
-  saveLocalStorageContact(contact: Contact): void {
-    const contacts: Contact[] = this.getLocalStorageContactContacts();
+  async saveLocalStorageContact(contact: Contact): Promise<void> {
+    const contacts: Contact[] = await this.getLocalStorageContactContacts();
     contacts.push(contact);
     localStorage.setItem(this.localStorageKey, JSON.stringify(contacts));
   }
