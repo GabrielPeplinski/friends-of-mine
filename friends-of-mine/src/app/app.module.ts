@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateContactPageComponent } from './pages/create-contact-page/create-contact-page.component';
 import { ShowContactPageComponent } from './pages/show-contact-page/show-contact-page.component';
 import { SearchBoxComponent } from './components/navbar/search-box/search-box.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchBoxComponent } from './components/navbar/search-box/search-box.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
