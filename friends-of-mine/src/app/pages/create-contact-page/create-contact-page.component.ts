@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {phoneNumberRegex} from "@utils/regex";
+import {emailRegex, phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from "@services/contact/contact.service";
 import ContactModel from "../../models/ContactModel";
@@ -18,10 +18,10 @@ export class CreateContactPageComponent implements OnInit {
   ngOnInit(): void {
     this.contactForm = new FormGroup({
       id: new FormControl(''),
+      name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(255)]),
       phoneNumber: new FormControl('', [Validators.required, Validators.pattern(phoneNumberRegex)]),
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      isFavorite: new FormControl('')
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(emailRegex)]),
+      isFavorite: new FormControl(false)
     });
   }
 
@@ -53,6 +53,7 @@ export class CreateContactPageComponent implements OnInit {
     });
 
     console.log(newContact);
+
     this.contactService.saveLocalStorageContact(newContact);
   }
 }
