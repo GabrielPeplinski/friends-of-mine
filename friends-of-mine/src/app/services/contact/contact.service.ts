@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Contact} from "@interfaces/Contact";
+import {ContactInterface} from "@interfaces/ContactInterface";
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,14 @@ export class ContactService {
 
   constructor() { }
 
-  async getLocalStorageContactContacts(): Promise<Contact[]> {
+  async getLocalStorageContactContacts(): Promise<ContactInterface[]> {
     const contactsJson: string | null = localStorage.getItem(this.localStorageKey);
 
     return contactsJson ? JSON.parse(contactsJson) : [];
   }
 
-  async saveLocalStorageContact(contact: Contact): Promise<void> {
-    const contacts: Contact[] = await this.getLocalStorageContactContacts();
+  async saveLocalStorageContact(contact: ContactInterface): Promise<void> {
+    const contacts: ContactInterface[] = await this.getLocalStorageContactContacts();
     contacts.push(contact);
     localStorage.setItem(this.localStorageKey, JSON.stringify(contacts));
   }
