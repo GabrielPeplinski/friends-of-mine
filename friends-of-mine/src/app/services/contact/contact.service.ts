@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import {Contact} from "@interfaces/Contact";
+import {Injectable} from '@angular/core';
+import {ContactInterface} from "@interfaces/ContactInterface";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -7,18 +9,30 @@ import {Contact} from "@interfaces/Contact";
 
 export class ContactService {
   private readonly localStorageKey: string = 'contacts';
+  private readonly apiUrl: string = 'http://localhost:3000/contacts';
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
-  async getLocalStorageContactContacts(): Promise<Contact[]> {
+  /*
+   * Local Storage Contacts Functions
+   */
+  async getLocalStorageContactContacts(): Promise<ContactInterface[]> {
     const contactsJson: string | null = localStorage.getItem(this.localStorageKey);
 
     return contactsJson ? JSON.parse(contactsJson) : [];
   }
 
-  async saveLocalStorageContact(contact: Contact): Promise<void> {
-    const contacts: Contact[] = await this.getLocalStorageContactContacts();
+  async saveLocalStorageContact(contact: ContactInterface): Promise<void> {
+    const contacts: ContactInterface[] = await this.getLocalStorageContactContacts();
     contacts.push(contact);
     localStorage.setItem(this.localStorageKey, JSON.stringify(contacts));
+  }
+
+  /*
+   * API Contacts Functions
+   */
+  async create(contact: ContactInterface): Promise<Observable<any>> {
+    return this.http.post<any>(this.apiUrl, contact);
   }
 }

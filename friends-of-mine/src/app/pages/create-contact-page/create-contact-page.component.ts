@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {emailRegex, phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from "@services/contact/contact.service";
-import ContactModel from "../../models/ContactModel";
+import Contact from "../../models/Contact";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-contact-page',
@@ -13,7 +14,7 @@ import ContactModel from "../../models/ContactModel";
 export class CreateContactPageComponent implements OnInit {
   contactForm!: FormGroup;
 
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -41,11 +42,11 @@ export class CreateContactPageComponent implements OnInit {
     return this.contactForm.get('isFavorite')!;
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
     if (this.contactForm.invalid)
       return;
 
-    const newContact: ContactModel = new ContactModel({
+    const newContact: Contact = new Contact({
       name: this.name.value,
       email: this.email.value,
       isFavorite: this.isFavorite.value,
@@ -54,6 +55,14 @@ export class CreateContactPageComponent implements OnInit {
 
     console.log(newContact);
 
-    this.contactService.saveLocalStorageContact(newContact);
+    (await this.contactService.create(newContact)).subscribe({
+      next: () => this.successfullyCreated(),
+      error: (e) => console.error('Ocorreu um erro ao tentar cadastrar o contato - ', e)
+    });
+  }
+
+  successfullyCreated(): void {
+    this.router.navigate(['']);
+    alert('Contato cadastrado com sucesso!')
   }
 }
