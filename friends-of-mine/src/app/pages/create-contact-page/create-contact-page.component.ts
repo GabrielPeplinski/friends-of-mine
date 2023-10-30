@@ -41,7 +41,7 @@ export class CreateContactPageComponent implements OnInit {
     return this.contactForm.get('isFavorite')!;
   }
 
-  submit(): void {
+  async submit() {
     if (this.contactForm.invalid)
       return;
 
@@ -54,6 +54,9 @@ export class CreateContactPageComponent implements OnInit {
 
     console.log(newContact);
 
-    this.contactService.saveLocalStorageContact(newContact);
+    (await this.contactService.create(newContact)).subscribe({
+      next: () => console.log('deu boa'),
+      error: (e) => console.error('Erro ao criar desejo:', e)
+    });
   }
 }

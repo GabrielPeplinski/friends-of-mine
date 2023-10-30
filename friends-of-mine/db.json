@@ -34,6 +34,13 @@
       "phoneNumber": "5555555559",
       "email": "luisa@example.com",
       "isFavorite": true
+    },
+    {
+      "name": "Qui dicta voluptas a",
+      "email": "lyvor@mailinator.com",
+      "isFavorite": true,
+      "phoneNumber": "42988101370",
+      "id": 6
     }
   ]
 }

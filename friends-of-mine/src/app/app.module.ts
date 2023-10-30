@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from '@components/navbar/navbar.component';
+import { FooterComponent } from '@components/footer/footer.component';
 import { CreateContactPageComponent } from './pages/create-contact-page/create-contact-page.component';
 import { ShowContactPageComponent } from './pages/show-contact-page/show-contact-page.component';
-import { SearchBoxComponent } from './components/navbar/search-box/search-box.component';
+import { SearchBoxComponent } from '@components/navbar/search-box/search-box.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
