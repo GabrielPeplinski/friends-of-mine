@@ -3,6 +3,7 @@ import {emailRegex, phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from "@services/contact/contact.service";
 import Contact from "../../models/Contact";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-contact-page',
@@ -13,7 +14,7 @@ import Contact from "../../models/Contact";
 export class CreateContactPageComponent implements OnInit {
   contactForm!: FormGroup;
 
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -41,7 +42,7 @@ export class CreateContactPageComponent implements OnInit {
     return this.contactForm.get('isFavorite')!;
   }
 
-  async submit() {
+  async submit(): Promise<void> {
     if (this.contactForm.invalid)
       return;
 
@@ -55,8 +56,13 @@ export class CreateContactPageComponent implements OnInit {
     console.log(newContact);
 
     (await this.contactService.create(newContact)).subscribe({
-      next: () => console.log('deu boa'),
-      error: (e) => console.error('Erro ao criar desejo:', e)
+      next: () => this.successfullyCreated(),
+      error: (e) => console.error('Ocorreu um erro ao tentar cadastrar o contato - ', e)
     });
+  }
+
+  successfullyCreated(): void {
+    this.router.navigate(['']);
+    alert('Contato cadastrado com sucesso!')
   }
 }
