@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CreateContactPageComponent} from "./pages/create-contact-page/create-contact-page.component";
-import {ShowContactPageComponent} from "./pages/show-contact-page/show-contact-page.component";
+import {CreateContactPageComponent} from "@pages/create-contact-page/create-contact-page.component";
+import {ShowContactPageComponent} from "@pages/show-contact-page/show-contact-page.component";
 
 const routes: Routes = [
   {
