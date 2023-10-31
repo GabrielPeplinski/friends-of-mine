@@ -1,1 +1,25 @@
-<p>list-contacts-page works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h2 class="text-center">Seus Contatos</h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>É Favorito?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.name | titlecase }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phoneNumber }}</td>
+          <td>{{ contact.isFavorite ? 'Sim' : 'Não' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
