@@ -12,6 +12,10 @@
         </tr>
         </thead>
         <tbody>
+        <div *ngIf="contacts === null || contacts === []">
+          <h3>Você ainda não cadastou nenhum contato! Acicione o seu primeiro <a href="/novo-contato">aqui</a></h3>
+        </div>
+
         <tr *ngFor="let contact of contacts">
           <td>{{ contact.name | titlecase }}</td>
           <td>{{ contact.email }}</td>

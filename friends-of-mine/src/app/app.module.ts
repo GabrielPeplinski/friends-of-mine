@@ -11,7 +11,7 @@ import { SearchBoxComponent } from '@components/navbar/search-box/search-box.com
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ListContactsPageComponent } from '@pages/list-contacts-page/list-contacts-page.component';
-import {PhoneNumberPipePipe} from "./pipes/PhoneNumberPipe.pipe";
+import {PhoneNumberPipePipe} from "@pipes/PhoneNumberPipe.pipe";
 
 @NgModule({
   declarations: [
