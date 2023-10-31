@@ -10,6 +10,7 @@ import { ShowContactPageComponent } from '@pages/show-contact-page/show-contact-
 import { SearchBoxComponent } from '@components/navbar/search-box/search-box.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ListContactsPageComponent } from './pages/list-contacts-page/list-contacts-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
     FooterComponent,
     CreateContactPageComponent,
     ShowContactPageComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    ListContactsPageComponent
   ],
   imports: [
     BrowserModule,
