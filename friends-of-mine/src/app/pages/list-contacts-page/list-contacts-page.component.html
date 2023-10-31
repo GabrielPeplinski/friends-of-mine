@@ -15,7 +15,7 @@
         <tr *ngFor="let contact of contacts">
           <td>{{ contact.name | titlecase }}</td>
           <td>{{ contact.email }}</td>
-          <td>{{ contact.phoneNumber }}</td>
+          <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
           <td>{{ contact.isFavorite ? 'Sim' : 'Não' }}</td>
         </tr>
         </tbody>
