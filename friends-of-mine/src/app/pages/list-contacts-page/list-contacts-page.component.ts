@@ -16,7 +16,7 @@ export class ListContactsPageComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const params: any = '';
+    const params: string = '';
 
     (await this.contactService.index(params))
       .subscribe({

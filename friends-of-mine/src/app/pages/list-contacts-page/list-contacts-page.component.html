@@ -2,28 +2,32 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <h2 class="text-center">Seus Contatos</h2>
-      <table class="table">
-        <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Telefone</th>
-          <th>É Favorito?</th>
-        </tr>
-        </thead>
-        <tbody>
-        <div *ngIf="contacts === null || contacts === []">
-          <h3>Você ainda não cadastou nenhum contato! Acicione o seu primeiro <a href="/novo-contato">aqui</a></h3>
-        </div>
 
-        <tr *ngFor="let contact of contacts">
-          <td>{{ contact.name | titlecase }}</td>
-          <td>{{ contact.email }}</td>
-          <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
-          <td>{{ contact.isFavorite ? 'Sim' : 'Não' }}</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="text-center" *ngIf="contacts.length === 0">
+        <h5>Você ainda não cadastou nenhum contato! Acicione o seu primeiro <a href="/novo-contato">aqui</a></h5>
+      </div>
+
+      <div class="text-center" *ngIf="contacts.length !== 0">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>É Favorito?</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let contact of contacts">
+            <td>{{ contact.name | titlecase }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
+            <td>{{ contact.isFavorite ? 'Sim' : 'Não' }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </div>
