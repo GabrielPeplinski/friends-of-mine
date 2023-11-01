@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactService} from "@services/contact/contact.service";
-import {Router} from "@angular/router";
 import {ContactInterface} from "@interfaces/ContactInterface";
 
 @Component({
@@ -12,7 +11,7 @@ import {ContactInterface} from "@interfaces/ContactInterface";
 export class ListContactsPageComponent implements OnInit {
   public contacts: ContactInterface[] = [];
 
-  constructor(private contactService: ContactService, private router: Router) {
+  constructor(private contactService: ContactService) {
   }
 
   async ngOnInit(): Promise<void> {
