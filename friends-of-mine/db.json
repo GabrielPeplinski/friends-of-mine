@@ -3,35 +3,35 @@
     {
       "id": 1,
       "name": "João Silva",
-      "phoneNumber": "5555555555",
+      "phoneNumber": "4211111111",
       "email": "joao@example.com",
       "isFavorite": true
     },
     {
       "id": 2,
       "name": "Maria Souza",
-      "phoneNumber": "5555555556",
+      "phoneNumber": "42111111111",
       "email": "maria@example.com",
       "isFavorite": false
     },
     {
       "id": 3,
       "name": "Pedro Santos",
-      "phoneNumber": "5555555557",
+      "phoneNumber": "42111111111",
       "email": "pedro@example.com",
       "isFavorite": true
     },
     {
       "id": 4,
       "name": "Ana Oliveira",
-      "phoneNumber": "5555555558",
+      "phoneNumber": "42111111111",
       "email": "ana@example.com",
       "isFavorite": false
     },
     {
       "id": 5,
       "name": "Luisa Fernandes",
-      "phoneNumber": "5555555559",
+      "phoneNumber": "42111111111",
       "email": "luisa@example.com",
       "isFavorite": true
     },
@@ -39,7 +39,7 @@
       "name": "Qui dicta voluptas a",
       "email": "lyvor@mailinator.com",
       "isFavorite": true,
-      "phoneNumber": "42988101370",
+      "phoneNumber": "42111111111",
       "id": 6
     }
   ]

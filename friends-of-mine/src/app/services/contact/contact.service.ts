@@ -35,4 +35,8 @@ export class ContactService {
   async create(contact: ContactInterface): Promise<Observable<any>> {
     return this.http.post<any>(this.apiUrl, contact);
   }
+
+  async index(params?: any): Promise<Observable<ContactInterface[]>> {
+    return this.http.get<any[]>(this.apiUrl, {params});
+  }
 }

@@ -5,7 +5,6 @@ class Contact implements ContactInterface {
   email: string;
   isFavorite: boolean;
   phoneNumber: string;
-
   constructor({name, email, isFavorite, phoneNumber}: ContactInterface) {
     this.name = name;
     this.email = email;

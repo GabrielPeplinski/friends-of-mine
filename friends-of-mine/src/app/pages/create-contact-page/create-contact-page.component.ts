@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {emailRegex, phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from "@services/contact/contact.service";
-import Contact from "../../models/Contact";
+import Contact from "@models/Contact";
 import {Router} from "@angular/router";
 
 @Component({
