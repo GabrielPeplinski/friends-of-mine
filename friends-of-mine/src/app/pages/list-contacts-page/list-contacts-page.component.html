@@ -4,7 +4,10 @@
       <h2 class="text-center">Seus Contatos</h2>
 
       <div class="text-center" *ngIf="contacts.length === 0">
-        <h5>Você ainda não cadastou nenhum contato! A vida é melhor com amigos! Adicione o seu primeiro contato <a href="/novo-contato">aqui</a></h5>
+        <h5>
+          Você ainda não cadastou nenhum contato! A vida é melhor com amigos! Adicione o seu primeiro contato
+          <a href="/novo-contato">aqui</a>
+        </h5>
       </div>
 
       <div class="text-center" *ngIf="contacts.length !== 0">
@@ -23,6 +26,11 @@
             <td>{{ contact.email }}</td>
             <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
             <td>{{ contact.isFavorite ? 'Sim' : 'Não' }}</td>
+            <td>
+              <button class="btn btn-transparent" [routerLink]="['/contatos', contact.name]">
+                <img src="/assets/icons/contact-card-icon.svg" alt="ícone de contato" width="15px">
+              </button>
+            </td>
           </tr>
           </tbody>
         </table>
