@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactInterface} from "@interfaces/ContactInterface";
 import {ContactService} from "@services/contact/contact.service";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-favorite-contacts-page',
@@ -14,7 +15,9 @@ export class FavoriteContactsPageComponent implements OnInit{
   }
 
   async ngOnInit(): Promise<void> {
-    (await this.contactService.getFavoriteContacts())
+    const params: HttpParams = new HttpParams().set('isFavorite', true);
+
+    (await this.contactService.index(params))
       .subscribe({
         next: (contacts: ContactInterface[]) => this.contacts = contacts,
         error: (e) => console.error(e),
