@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ContactInterface} from "@interfaces/ContactInterface";
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +42,11 @@ export class ContactService {
 
   async show(contactId: number | string | null): Promise<Observable<ContactInterface>> {
     return this.http.get<any>(this.apiUrl + '/' + contactId);
+  }
+
+  async getFavoriteContacts(): Promise<Observable<ContactInterface[]>> {
+    const params: HttpParams = new HttpParams().set('isFavorite', true);
+
+    return this.http.get<any[]>(this.apiUrl, {params});
   }
 }
