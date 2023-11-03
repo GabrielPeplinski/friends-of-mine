@@ -25,7 +25,7 @@
             <td>{{ contact.name | titlecase }}</td>
             <td>{{ contact.email }}</td>
             <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
-            <td>{{ contact.isFavorite ? 'Sim' : 'Não' }}</td>
+            <td>{{ contact.isFavorite | isFavoritePipe}}</td>
             <td>
               <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
                 <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">

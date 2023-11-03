@@ -12,7 +12,7 @@
           <h4 class="card-title">{{ contact.name }}</h4>
           <p class="card-text">Email: {{ contact.email }}</p>
           <p class="card-text">Telefone: {{ contact.phoneNumber }}</p>
-          <p class="card-text">Favorito: {{ contact.isFavorite ? 'Sim' : 'Não' }}</p>
+          <p class="card-text">Favorito: {{ contact.isFavorite | isFavoritePipe}}</p>
         </div>
       </div>
 
