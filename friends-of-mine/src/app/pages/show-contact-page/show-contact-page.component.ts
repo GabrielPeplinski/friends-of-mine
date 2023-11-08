@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {ContactService} from "@services/contact/contact.service";
+import {ContactInterface} from "@interfaces/ContactInterface";
 
 @Component({
   selector: 'app-show-contact-page',
@@ -7,14 +9,27 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./show-contact-page.component.css']
 })
 export class ShowContactPageComponent implements OnInit {
-  contactId: number | undefined;
+  contactId: number | string = '';
+  public contact: ContactInterface | null = null;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private contactService: ContactService
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.contactId = +params['id'];
-        alert('Foi utilizado o Id do usuário:' + this.contactId)
+      this.getContactById();
     });
+  }
+
+  async getContactById(): Promise<void> {
+    (await this.contactService.show(this.contactId))
+      .subscribe({
+        next: (contact: ContactInterface) => this.contact = contact,
+        error: (e) => console.error(e),
+      })
   }
 }

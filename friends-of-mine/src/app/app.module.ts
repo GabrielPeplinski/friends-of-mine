@@ -11,7 +11,10 @@ import { SearchBoxComponent } from '@components/navbar/search-box/search-box.com
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ListContactsPageComponent } from '@pages/list-contacts-page/list-contacts-page.component';
-import {PhoneNumberPipePipe} from "@pipes/PhoneNumberPipe.pipe";
+import {PhoneNumberPipe} from "@pipes/PhoneNumberPipe.pipe";
+import { IsFavoritePipe } from '@pipes/isFavoritePipe.pipe';
+import { ContactsTableComponent } from './components/contacts-table/contacts-table.component';
+import { FavoriteContactsPageComponent } from './pages/favorite-contacts-page/favorite-contacts-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {PhoneNumberPipePipe} from "@pipes/PhoneNumberPipe.pipe";
     ShowContactPageComponent,
     SearchBoxComponent,
     ListContactsPageComponent,
-    PhoneNumberPipePipe,
+    PhoneNumberPipe,
+    IsFavoritePipe,
+    ContactsTableComponent,
+    FavoriteContactsPageComponent,
   ],
   imports: [
     BrowserModule,

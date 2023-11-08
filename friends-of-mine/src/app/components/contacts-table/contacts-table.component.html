@@ -1,0 +1,32 @@
+<div class="text-center" *ngIf="contacts.length === 0">
+  <h5>
+    Você ainda não cadastou nenhum contato! A vida é melhor com amigos! Adicione o seu primeiro contato
+    <a href="/novo-contato">aqui</a>
+  </h5>
+</div>
+
+<div class="text-center" *ngIf="contacts.length !== 0">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>É Favorito?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.name | titlecase }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
+      <td>{{ contact.isFavorite | isFavoritePipe}}</td>
+      <td>
+        <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
+          <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

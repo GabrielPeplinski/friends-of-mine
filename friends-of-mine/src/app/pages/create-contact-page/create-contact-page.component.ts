@@ -55,7 +55,7 @@ export class CreateContactPageComponent implements OnInit {
 
     console.log(newContact);
 
-    (await this.contactService.create(newContact)).subscribe({
+    (await this.contactService.store(newContact)).subscribe({
       next: () => this.successfullyCreated(),
       error: (e) => console.error('Ocorreu um erro ao tentar cadastrar o contato - ', e)
     });
