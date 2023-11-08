@@ -4,10 +4,11 @@ import {CreateContactPageComponent} from "@pages/create-contact-page/create-cont
 import {ShowContactPageComponent} from "@pages/show-contact-page/show-contact-page.component";
 import {ListContactsPageComponent} from "@pages/list-contacts-page/list-contacts-page.component";
 import {FavoriteContactsPageComponent} from "@pages/favorite-contacts-page/favorite-contacts-page.component";
+import {permissionGuard} from "@guards/permission.guard";
 
 const routes: Routes = [
   {
-    path: 'contatos', component: ListContactsPageComponent
+    path: 'contatos', component: ListContactsPageComponent, canActivate: [permissionGuard]
   },
   {
     path: 'contatos/favoritos', component: FavoriteContactsPageComponent
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'novo-contato', component: CreateContactPageComponent
-  },
+  }
 ];
 
 @NgModule({
