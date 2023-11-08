@@ -32,7 +32,7 @@ export class ContactService {
   /*
    * API Contacts Functions
    */
-  async create(contact: ContactInterface): Promise<Observable<any>> {
+  async store(contact: ContactInterface): Promise<Observable<any>> {
     return this.http.post<any>(this.apiUrl, contact);
   }
 
@@ -42,6 +42,10 @@ export class ContactService {
 
   async show(contactId: number | string | null): Promise<Observable<ContactInterface>> {
     return this.http.get<any>(this.apiUrl + '/' + contactId);
+  }
+
+  async update(contact: ContactInterface): Promise<Observable<any>> {
+    return this.http.put<any>(this.apiUrl + '/' + contact.id, contact);
   }
 
   async getFavoriteContacts(): Promise<Observable<ContactInterface[]>> {
