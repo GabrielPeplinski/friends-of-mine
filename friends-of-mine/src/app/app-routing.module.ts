@@ -11,13 +11,13 @@ const routes: Routes = [
     path: 'contatos', component: ListContactsPageComponent, canActivate: [permissionGuard]
   },
   {
+    path: 'contatos/novo-contato', component: CreateContactPageComponent
+  },
+  {
     path: 'contatos/favoritos', component: FavoriteContactsPageComponent
   },
   {
     path: 'contatos/:id', component: ShowContactPageComponent
-  },
-  {
-    path: 'novo-contato', component: CreateContactPageComponent
   }
 ];
 
