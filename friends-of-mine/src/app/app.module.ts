@@ -15,6 +15,7 @@ import {PhoneNumberPipe} from "@pipes/PhoneNumberPipe.pipe";
 import { IsFavoritePipe } from '@pipes/isFavoritePipe.pipe';
 import { ContactsTableComponent } from '@components/contacts-table/contacts-table.component';
 import { FavoriteContactsPageComponent } from '@pages/favorite-contacts-page/favorite-contacts-page.component';
+import { HomePageComponent } from '@pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FavoriteContactsPageComponent } from '@pages/favorite-contacts-page/fav
     IsFavoritePipe,
     ContactsTableComponent,
     FavoriteContactsPageComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
