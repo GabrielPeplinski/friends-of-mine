@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ContactInterface} from "@interfaces/ContactInterface";
 import {ContactService} from "@services/contact/contact.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-contacts-table',
@@ -11,7 +10,7 @@ import {Router} from "@angular/router";
 export class ContactsTableComponent {
   @Input() contacts: ContactInterface[] = [];
 
-  public constructor(private contactService: ContactService, private router: Router) {
+  public constructor(private contactService: ContactService) {
   }
 
   async deleteContact(contact: ContactInterface): Promise<void> {
@@ -19,13 +18,9 @@ export class ContactsTableComponent {
 
     if (ans) {
       (await this.contactService.destroy(contact.id)).subscribe({
-        next: () => this.reloadPage(),
+        next: () => location.reload(),
         error: (e) => console.error('Ocorreu um erro ao tentar excluir o contato - ', e)
       });
     }
-  }
-
-  reloadPage(): void {
-    location.reload();
   }
 }
