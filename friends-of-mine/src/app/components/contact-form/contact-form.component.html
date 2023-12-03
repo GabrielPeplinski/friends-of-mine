@@ -1,0 +1,58 @@
+<form (ngSubmit)="submitForm()" [formGroup]="contactForm">
+
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text"
+           class="form-control"
+           id="nome"
+           placeholder="Nome"
+           formControlName="name"
+    >
+    <div class="mb-3 validation-errors" *ngIf="(contactForm.touched && contactForm.get('name')?.invalid)">
+      <p class="text-danger">O nome deve ter entre 5 e 255 caracteres</p>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email"
+           class="form-control"
+           id="email"
+           placeholder="Email"
+           formControlName="email"
+    >
+    <div class="mb-3 validation-errors" *ngIf="(contactForm.touched && contactForm.get('email')?.invalid)">
+      <p class="text-danger">O email deve ser válido</p>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="telefone" class="form-label">Telefone</label>
+    <input type="text"
+           class="form-control"
+           id="telefone"
+           placeholder="Número de telefone"
+           formControlName="phoneNumber"
+    >
+    <div class="mb-3 validation-errors" *ngIf="(contactForm.touched && contactForm.get('phoneNumber')?.invalid)">
+      <p class="text-danger">Número de telefone deve ser válido</p>
+    </div>
+  </div>
+
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="is_favorite"
+      formControlName="isFavorite"
+    >
+    <label class="form-check-label" for="is_favorite">Deseja adicionar aos seus favoritos?</label>
+  </div>
+
+  <div class="text-end">
+    <button type="submit" class="btn btn-primary">
+      Cadastrar
+      <img src="assets/icons/user-plus-solid.svg" alt="ícone de cadastro" width="15px">
+    </button>
+  </div>
+</form>
