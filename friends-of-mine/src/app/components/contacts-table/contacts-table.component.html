@@ -10,18 +10,18 @@
     <table class="table">
       <thead>
       <tr>
-        <th class="d-sm-none">Nome</th>
-        <th class="d-none d-sm-table-cell">Email</th>
-        <th class="d-none d-sm-table-cell">Telefone</th>
+        <th>Nome</th>
+        <th class="d-none d-lg-table-cell">Email</th> <!-- Mostra apenas em telas grandes (desktop) -->
+        <th class="d-none d-md-table-cell">Telefone</th> <!-- Mostra apenas em telas médias (tablet) -->
         <th class="d-none d-sm-table-cell">É Favorito?</th>
         <th></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let contact of contacts">
-        <td class="d-sm-none">{{ contact.name | titlecase }}</td>
-        <td class="d-none d-sm-table-cell">{{ contact.email }}</td>
-        <td class="d-none d-sm-table-cell">{{ contact.phoneNumber | phoneNumberPipe }}</td>
+        <td>{{ contact.name | titlecase }}</td>
+        <td class="d-none d-lg-table-cell">{{ contact.email }}</td>
+        <td class="d-none d-md-table-cell">{{ contact.phoneNumber | phoneNumberPipe }}</td>
         <td class="d-none d-sm-table-cell">{{ contact.isFavorite | isFavoritePipe}}</td>
         <td>
           <div class="d-flex align-items-center justify-content-center">
