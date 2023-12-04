@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ContactInterface} from "@interfaces/ContactInterface";
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {environment} from "@environments/environments";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 
 export class ContactService {
   private readonly localStorageKey: string = 'contacts';
-  private readonly apiUrl: string = 'http://localhost:3000/contacts';
+  private readonly apiUrl: string = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {
   }
@@ -52,5 +53,15 @@ export class ContactService {
     const params: HttpParams = new HttpParams().set('isFavorite', true);
 
     return this.http.get<any[]>(this.apiUrl, {params});
+  }
+
+  async destroy(contactId: number | undefined): Promise<Observable<any>> {
+    return this.http.delete<any>(this.apiUrl + '/' + contactId);
+  }
+
+  async toggleFavorite(contact: ContactInterface, isFavorite: boolean): Promise<Observable<any>> {
+    const updatedContact = { isFavorite: !isFavorite };
+
+    return this.http.patch<any>(this.apiUrl + '/' + contact.id, updatedContact);
   }
 }

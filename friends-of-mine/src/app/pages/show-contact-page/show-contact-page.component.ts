@@ -32,4 +32,12 @@ export class ShowContactPageComponent implements OnInit {
         error: (e) => console.error(e),
       })
   }
+
+  async makeFavorite(contact: ContactInterface): Promise<void> {
+    (await this.contactService.toggleFavorite(contact, contact.isFavorite))
+      .subscribe({
+        next: () => location.reload(),
+        error: (e) => console.error(e),
+      });
+  }
 }

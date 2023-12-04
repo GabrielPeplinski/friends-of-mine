@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {emailRegex, phoneNumberRegex} from "@utils/regex";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from "@services/contact/contact.service";
-import Contact from "@models/Contact";
 import {Router} from "@angular/router";
+import {ContactInterface} from "@interfaces/ContactInterface";
 
 @Component({
   selector: 'app-create-contact-page',
@@ -46,12 +46,7 @@ export class CreateContactPageComponent implements OnInit {
     if (this.contactForm.invalid)
       return;
 
-    const newContact: Contact = new Contact({
-      name: this.name.value,
-      email: this.email.value,
-      isFavorite: this.isFavorite.value,
-      phoneNumber: this.phoneNumber.value
-    });
+    const newContact: ContactInterface = this.contactForm.value as ContactInterface;
 
     console.log(newContact);
 

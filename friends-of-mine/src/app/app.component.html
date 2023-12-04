@@ -1,10 +1,8 @@
-<div>
-  <div>
-    <app-navbar />
-    <router-outlet />
-    <app-footer />
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <!-- Conteúdo principal do seu aplicativo Angular -->
-    </main>
-  </div>
+<div class="container-fluid d-flex flex-column vh-100">
+  <app-navbar />
+  <router-outlet />
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 flex-grow-1">
+    <!-- Conteúdo principal do seu aplicativo Angular -->
+  </main>
+  <app-footer />
 </div>
