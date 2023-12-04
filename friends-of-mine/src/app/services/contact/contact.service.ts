@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ContactInterface} from "@interfaces/ContactInterface";
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {environment} from "@environments/environments";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 
 export class ContactService {
   private readonly localStorageKey: string = 'contacts';
-  private readonly apiUrl: string = 'http://localhost:3000/contacts';
+  private readonly apiUrl: string = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {
   }
