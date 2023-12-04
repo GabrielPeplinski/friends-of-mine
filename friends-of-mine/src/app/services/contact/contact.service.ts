@@ -57,4 +57,10 @@ export class ContactService {
   async destroy(contactId: number | undefined): Promise<Observable<any>> {
     return this.http.delete<any>(this.apiUrl + '/' + contactId);
   }
+
+  async toggleFavorite(contact: ContactInterface, isFavorite: boolean): Promise<Observable<any>> {
+    const updatedContact = { isFavorite: !isFavorite };
+
+    return this.http.patch<any>(this.apiUrl + '/' + contact.id, updatedContact);
+  }
 }

@@ -13,6 +13,7 @@
       <th>Email</th>
       <th>Telefone</th>
       <th>É Favorito?</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -22,14 +23,25 @@
       <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
       <td>{{ contact.isFavorite | isFavoritePipe}}</td>
       <td>
-        <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
-          <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
-        </button>
-      </td>
-      <td>
-        <button class="btn btn-transparent" (click)="deleteContact(contact)">
-          <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">
-        </button>
+        <!-- Botões para telas grandes -->
+        <div class="d-none d-sm-flex">
+          <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
+            <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
+          </button>
+          <button class="btn btn-transparent" (click)="deleteContact(contact)">
+            <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">
+          </button>
+        </div>
+
+        <!-- Botões para telas pequenas -->
+        <div class="d-sm-none">
+          <button class="btn btn-transparent mb-2" [routerLink]="['/contatos', contact.id]">
+            <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
+          </button>
+          <button class="btn btn-transparent" (click)="deleteContact(contact)">
+            <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">
+          </button>
+        </div>
       </td>
     </tr>
     </tbody>

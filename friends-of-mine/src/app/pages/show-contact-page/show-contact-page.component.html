@@ -17,7 +17,9 @@
       </div>
 
       <div class="text-end mt-3">
-        <a routerLink="/contatos" class="btn btn-primary">Voltar</a>
+        <button class="btn btn-primary" *ngIf="contact && !contact.isFavorite" (click)="makeFavorite(contact)">Tornar favorito</button>
+        <button class="btn btn-primary" *ngIf="contact && contact.isFavorite" (click)="makeFavorite(contact)">Remover favorito</button>
+        <a routerLink="/contatos" class="btn btn-dark ms-2">Voltar</a>
       </div>
     </div>
   </div>
