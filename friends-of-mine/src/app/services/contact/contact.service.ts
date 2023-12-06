@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ContactInterface} from "@interfaces/ContactInterface";
 import {Observable} from "rxjs";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "@environments/environments";
 
 @Injectable({
@@ -10,7 +10,7 @@ import {environment} from "@environments/environments";
 
 export class ContactService {
   private readonly localStorageKey: string = 'contacts';
-  private readonly apiUrl: string = environment.apiBaseUrl;
+  private readonly apiUrl: string = environment.apiBaseUrl + '/contacts'
 
   constructor(private http: HttpClient) {
   }
@@ -41,18 +41,12 @@ export class ContactService {
     return this.http.get<any[]>(this.apiUrl, {params});
   }
 
-  async show(contactId: number | string | null): Promise<Observable<ContactInterface>> {
+  async show(contactId: number | string | undefined): Promise<Observable<ContactInterface>> {
     return this.http.get<any>(this.apiUrl + '/' + contactId);
   }
 
-  async update(contact: ContactInterface): Promise<Observable<any>> {
+  async update(contactId: number | undefined, contact: ContactInterface): Promise<Observable<any>> {
     return this.http.put<any>(this.apiUrl + '/' + contact.id, contact);
-  }
-
-  async getFavoriteContacts(): Promise<Observable<ContactInterface[]>> {
-    const params: HttpParams = new HttpParams().set('isFavorite', true);
-
-    return this.http.get<any[]>(this.apiUrl, {params});
   }
 
   async destroy(contactId: number | undefined): Promise<Observable<any>> {
@@ -62,6 +56,6 @@ export class ContactService {
   async toggleFavorite(contact: ContactInterface, isFavorite: boolean): Promise<Observable<any>> {
     const updatedContact = { isFavorite: !isFavorite };
 
-    return this.http.patch<any>(this.apiUrl + '/' + contact.id, updatedContact);
+    return this.http.put<any>(this.apiUrl + '/' + contact.id, updatedContact);
   }
 }

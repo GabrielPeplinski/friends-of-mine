@@ -1,49 +1,43 @@
 <div class="text-center" *ngIf="contacts.length === 0">
   <h5>
-    Você ainda não cadastou nenhum contato! A vida é melhor com amigos! Adicione o seu primeiro contato
+    Você ainda não cadastrou nenhum contato! A vida é melhor com amigos! Adicione o seu primeiro contato
     <a href="/novo-contato">aqui</a>
   </h5>
 </div>
 
 <div class="text-center" *ngIf="contacts.length !== 0">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Email</th>
-      <th>Telefone</th>
-      <th>É Favorito?</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let contact of contacts">
-      <td>{{ contact.name | titlecase }}</td>
-      <td>{{ contact.email }}</td>
-      <td>{{ contact.phoneNumber | phoneNumberPipe }}</td>
-      <td>{{ contact.isFavorite | isFavoritePipe}}</td>
-      <td>
-        <!-- Botões para telas grandes -->
-        <div class="d-none d-sm-flex">
-          <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
-            <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
-          </button>
-          <button class="btn btn-transparent" (click)="deleteContact(contact)">
-            <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">
-          </button>
-        </div>
-
-        <!-- Botões para telas pequenas -->
-        <div class="d-sm-none">
-          <button class="btn btn-transparent mb-2" [routerLink]="['/contatos', contact.id]">
-            <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
-          </button>
-          <button class="btn btn-transparent" (click)="deleteContact(contact)">
-            <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">
-          </button>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nome</th>
+        <th class="d-none d-lg-table-cell">Email</th> <!-- Mostra apenas em telas grandes (desktop) -->
+        <th class="d-none d-md-table-cell">Telefone</th> <!-- Mostra apenas em telas médias (tablet) -->
+        <th class="d-none d-sm-table-cell">É Favorito?</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.name | titlecase }}</td>
+        <td class="d-none d-lg-table-cell">{{ contact.email }}</td>
+        <td class="d-none d-md-table-cell">{{ contact.phoneNumber | phoneNumberPipe }}</td>
+        <td class="d-none d-sm-table-cell">{{ contact.isFavorite | isFavoritePipe}}</td>
+        <td>
+          <div class="d-flex align-items-center justify-content-center">
+            <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
+              <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
+            </button>
+            <button class="btn btn-transparent" (click)="showContact(contact)">
+              <img src="/assets/icons/pen-to-square-regular.svg" alt="ícone de contato" width="15px">
+            </button>
+            <button class="btn btn-transparent" (click)="deleteContact(contact)">
+              <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
