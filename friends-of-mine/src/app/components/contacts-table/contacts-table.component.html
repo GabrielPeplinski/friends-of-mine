@@ -25,8 +25,11 @@
         <td class="d-none d-sm-table-cell">{{ contact.isFavorite | isFavoritePipe}}</td>
         <td>
           <div class="d-flex align-items-center justify-content-center">
-            <button class="btn btn-transparent mb-2" [routerLink]="['/contatos', contact.id]">
+            <button class="btn btn-transparent" [routerLink]="['/contatos', contact.id]">
               <img src="/assets/icons/magnifying-glass-solid.svg" alt="ícone de contato" width="15px">
+            </button>
+            <button class="btn btn-transparent" (click)="showContact(contact)">
+              <img src="/assets/icons/pen-to-square-regular.svg" alt="ícone de contato" width="15px">
             </button>
             <button class="btn btn-transparent" (click)="deleteContact(contact)">
               <img src="/assets/icons/trash-can-solid.svg" alt="ícone de contato" width="15px">

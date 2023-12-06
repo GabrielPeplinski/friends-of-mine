@@ -6,6 +6,7 @@ import {ListContactsPageComponent} from "@pages/list-contacts-page/list-contacts
 import {FavoriteContactsPageComponent} from "@pages/favorite-contacts-page/favorite-contacts-page.component";
 import {permissionGuard} from "@guards/permission.guard";
 import {HomePageComponent} from "@pages/home-page/home-page.component";
+import {EditContactPageComponent} from "@pages/edit-contact-page/edit-contact-page.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
       },
       {
         path: ':id', component: ShowContactPageComponent
+      },
+      {
+        path: ':id/editar', component: EditContactPageComponent
       }
     ]
   },
