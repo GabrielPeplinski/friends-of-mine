@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="text-center" *ngIf="!contact">
+        <h5>Este contato não foi encontrado! Veja os seus contatos <a href="/contatos">aqui</a></h5>
+      </div>
+
+      <div *ngIf="contact">
+        <h2 class="text-center">Edição de Contato</h2>
+        <form #formRef="ngForm" (ngSubmit)="submit()" [formGroup]="contactForm" #formDir="ngForm">
+
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text"
+                   class="form-control"
+                   id="nome"
+                   placeholder="Nome"
+                   required
+                   formControlName="name"
+                   [(ngModel)]="contact.name"
+            >
+            <div class="mb-3 validation-errors" *ngIf="name.invalid && formDir.submitted">
+              <p class="text-bg-danger">O nome deve ter entre 5 e 255 caracteres</p>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   placeholder="Email"
+                   required
+                   formControlName="email"
+                   [(ngModel)]="contact.email"
+            >
+            <div class="mb-3 validation-errors" *ngIf="email.invalid && formDir.submitted">
+              <p class="text-bg-danger">O email deve ser válido</p>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text"
+                   class="form-control"
+                   id="telefone"
+                   placeholder="Número de telefone"
+                   required
+                   formControlName="phoneNumber"
+                   [(ngModel)]="contact.phoneNumber"
+            >
+            <div class="mb-3 validation-errors" *ngIf="phoneNumber.invalid && formDir.submitted">
+              <p class="text-bg-danger">Número de telefone deve ser válido</p>
+            </div>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="is_favorite"
+              formControlName="isFavorite"
+              [(ngModel)]="contact.isFavorite"
+            >
+            <label class="form-check-label" for="is_favorite">Deseja adicionar aos seus favoritos?</label>
+          </div>
+
+          <div class="text-end">
+            <button type="submit" class="btn btn-primary" [disabled]="formRef.invalid">
+              Atualizar
+              <img src="assets/icons/user-plus-solid.svg" alt="ícone de cadastro" width="15px">
+            </button>
+            <a routerLink="/contatos" class="btn btn-dark ms-2">Voltar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
