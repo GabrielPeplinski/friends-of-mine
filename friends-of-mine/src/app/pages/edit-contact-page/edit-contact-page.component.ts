@@ -88,7 +88,7 @@ export class EditContactPageComponent implements OnInit {
   }
 
   successfullyUpdated(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['/contatos']);
     alert('Contato editado com sucesso!')
   }
 }
