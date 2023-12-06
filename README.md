@@ -2,7 +2,7 @@
 Aplicacação desenvolvida com Angular, onde será possível gerenciar uma agenda de contatos pessoais.
 
 ## Disponível em: 
-https://friends-of-mine-euu1uc3or-gabriel-peplinskis-projects.vercel.app/
+https://friends-of-mine-1xxkvve4o-gabriel-peplinskis-projects.vercel.app
 
 ## Protótipo
 ### Versão Desktop:
