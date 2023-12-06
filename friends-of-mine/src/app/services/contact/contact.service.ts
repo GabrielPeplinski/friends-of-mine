@@ -41,7 +41,7 @@ export class ContactService {
     return this.http.get<any[]>(this.apiUrl, {params});
   }
 
-  async show(contactId: number | string | null): Promise<Observable<ContactInterface>> {
+  async show(contactId: number | string | undefined): Promise<Observable<ContactInterface>> {
     return this.http.get<any>(this.apiUrl + '/' + contactId);
   }
 

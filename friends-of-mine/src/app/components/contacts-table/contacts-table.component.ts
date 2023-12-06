@@ -26,10 +26,9 @@ export class ContactsTableComponent {
   }
 
   async showContact(contact: ContactInterface): Promise<void> {
-    // @ts-ignore
-    (await this.contactService.show(contact.id)).subscribe({
-      next: () => this.router.navigate(['/contatos', contact.id, 'editar']),
-      error: (e) => console.error('Ocorreu um erro ao tentar consultar o contato - ', e)
-    });
+      (await this.contactService.show(contact.id)).subscribe({
+        next: () => this.router.navigate(['/contatos', contact.id, 'editar']),
+        error: (e) => console.error('Ocorreu um erro ao tentar consultar o contato - ', e)
+      });
   }
 }
