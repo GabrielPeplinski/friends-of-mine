@@ -45,7 +45,7 @@ export class ContactService {
     return this.http.get<any>(this.apiUrl + '/' + contactId);
   }
 
-  async update(contact: ContactInterface): Promise<Observable<any>> {
+  async update(contactId: number | undefined, contact: ContactInterface): Promise<Observable<any>> {
     return this.http.put<any>(this.apiUrl + '/' + contact.id, contact);
   }
 
